@@ -37,6 +37,11 @@
                   <a href="/"><i class="icon-home icon-white"></i> Incio</a>
                 </li>
                 <% if user_signed_in? %>
+                  <li class="">
+                    <%= link_to departamentos_path do %>
+                      <i class="icon-th icon-black"></i> Departamentos
+                    <% end %>
+                  </li>
                   <li class="primary">
                     <%= link_to incidencia_index_path do %>
                       <i class="icon-pencil icon-white"></i> Incidencias

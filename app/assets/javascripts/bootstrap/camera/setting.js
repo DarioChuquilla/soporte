@@ -4,6 +4,6 @@
 				height: '400px',
 				loader: 'bar',
 				pagination: false,
-				thumbnails: true
+				thumbnails: false
 			});
 		});

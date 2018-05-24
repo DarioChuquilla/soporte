@@ -86,48 +86,50 @@
           <%= f.select :departamento_id, @departamentos.map{|d| [d.nombre, d.id]}, include_blank: true %>
         </td>
       </tr>
-      <tr>
-        <td class="well well-primary">
-          <%= f.label :user_id, "Responsable", class: "control-label" %>
-        </td>
-        <td class="well">
-          <%# f.text_field :user_id %>
-          <%= f.select :user_id, @usuarios.map{|u| [u.full_name, u.id]}, include_blank: true %>
-        </td>
-      </tr>
-      <tr>
-        <td class="well well-primary">
-          <%= f.label :responsable_cierre_id, class: "control-label" %>
-        </td>
-        <td class="well">
-          <%# f.text_field :responsable_cierre_id %>
-          <%= f.select :responsable_cierre_id, @usuarios.map{|u| [u.full_name, u.id]}, include_blank: true %>
-        </td>
-      </tr>
-      <tr>
-        <td class="well well-primary">
-          <%= f.label :fecha_escalamiento, class: "control-label" %>
-        </td>
-        <td class="well fecha">
-          <%= f.datetime_select :fecha_escalamiento %>
-        </td>
-      </tr>
-      <tr>
-        <td class="well well-primary">
-          <%= f.label :descripcion_solucion, class: "control-label" %>
-        </td>
-        <td class="well">
-          <%= f.text_area :descripcion_solucion %>
-        </td>
-      </tr>
-      <tr>
-        <td class="well well-primary">
-          <%= f.label :descripcion_estado, class: "control-label" %>
-        </td>
-        <td class="well">
-          <%= f.text_area :descripcion_estado %>
-        </td>
-      </tr>
+      <% if params[:action].downcase == 'edit' %>
+        <tr>
+          <td class="well well-primary">
+            <%= f.label :user_id, "Responsable", class: "control-label" %>
+          </td>
+          <td class="well">
+            <%# f.text_field :user_id %>
+            <%= f.select :user_id, @usuarios.map{|u| [u.full_name, u.id]}, include_blank: true %>
+          </td>
+        </tr>
+        <tr>
+          <td class="well well-primary">
+            <%= f.label :responsable_cierre_id, class: "control-label" %>
+          </td>
+          <td class="well">
+            <%# f.text_field :responsable_cierre_id %>
+            <%= f.select :responsable_cierre_id, @usuarios.map{|u| [u.full_name, u.id]}, include_blank: true %>
+          </td>
+        </tr>
+        <tr>
+          <td class="well well-primary">
+            <%= f.label :fecha_escalamiento, class: "control-label" %>
+          </td>
+          <td class="well fecha">
+            <%= f.datetime_select :fecha_escalamiento %>
+          </td>
+        </tr>
+        <tr>
+          <td class="well well-primary">
+            <%= f.label :descripcion_solucion, class: "control-label" %>
+          </td>
+          <td class="well">
+            <%= f.text_area :descripcion_solucion %>
+          </td>
+        </tr>
+        <tr>
+          <td class="well well-primary">
+            <%= f.label :descripcion_estado, class: "control-label" %>
+          </td>
+          <td class="well">
+            <%= f.text_area :descripcion_estado %>
+          </td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
   <div class="actions">

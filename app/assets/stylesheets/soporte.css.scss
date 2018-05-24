@@ -17,6 +17,14 @@ form {
     padding: 10px;
   }
 }
+.departamentos {
+  display: flex;
+  flex-wrap: wrap;
+  .departamento {
+    flex-basis: 17%;
+    padding: 5px;
+  }
+}
 .incidencias {
   display: flex;
   flex-wrap: wrap;

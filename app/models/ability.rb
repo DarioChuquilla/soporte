@@ -30,7 +30,6 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
     #can :read, Incidencia.completed
     can :manage, Incidencia
-    can :manage, Departamento, user_id: user.id
-    can :read, Departamento, user_id: user.id
+    can :manage, Departamento
   end
 end

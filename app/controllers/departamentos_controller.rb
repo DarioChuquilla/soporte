@@ -43,6 +43,6 @@ class DepartamentosController < ApplicationController
     end
 
     def departamento_params
-      params.require(:departamento).permit(:nombre, :responsable_id_id)
+      params.require(:departamento).permit(:nombre, :user_id)
     end
 end

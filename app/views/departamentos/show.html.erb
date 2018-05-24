@@ -7,7 +7,7 @@
 
 <p>
   <strong>Responsable:</strong>
-  <%= @departamento.responsable.try(:email) %>
+  <%= @departamento.user.try(:full_name) %>
 </p>
 
 <%= link_to 'Edit', edit_departamento_path(@departamento) %> |
