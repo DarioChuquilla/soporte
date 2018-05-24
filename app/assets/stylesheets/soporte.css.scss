@@ -28,8 +28,9 @@ form {
 .incidencias {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
   .incidencia {
-    flex-basis: 17%;
+    flex-basis: 22%;
     padding: 5px;
     .header {
       display: flex;

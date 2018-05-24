@@ -1,14 +1,11 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @departamento.nombre %></h1>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @departamento.nombre %>
-</p>
+<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Responsable:</strong>
   <%= @departamento.user.try(:full_name) %>
 </p>
 
-<%= link_to 'Edit', edit_departamento_path(@departamento) %> |
-<%= link_to 'Back', departamentos_path %>
+<%= link_to 'Editar', edit_departamento_path(@departamento), class: "btn btn-primary" %> |
+<%= link_to 'Regresar', departamentos_path, class: "btn btn-warning" %>

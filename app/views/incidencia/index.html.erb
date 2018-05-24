@@ -17,7 +17,11 @@
         <div class="fecha_error well well-primary">
           <%= incidencia.fecha_error.strftime("%d/%m/%Y") %>
         </div>
-        <div class="codigo_error well well-warn">
+        <div class="well well-success">
+          Estado:<br />
+          <%= incidencia.estado %>
+        </div>
+        <div class="codigo_error well well-warning">
           <%= incidencia.codigo_error %>
         </div>
       </div>

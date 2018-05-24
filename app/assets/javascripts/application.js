@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+// require turbolinks
 // require_tree .
 //= require bootstrap/jquery-1.8.2.min
 //= require bootstrap/jquery.easing.1.3

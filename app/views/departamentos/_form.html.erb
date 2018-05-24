@@ -16,10 +16,15 @@
     <%= f.text_field :nombre %>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br>
+    <%= f.label :user_id, "Responsable" %><br>
     <%= f.select :user_id, @usuarios.map{|u| [u.full_name, u.id]} %>
   </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Guardar", class: "btn btn-success" %>
+    <% if params[:action].downcase == "edit" %>
+      <%= link_to 'Detalles', @departamento, class: "btn btn-primary" %>
+    <% end %>
+    <%= link_to 'Cancelar', departamentos_path, class: "btn btn-danger" %>
   </div>
 <% end %>
