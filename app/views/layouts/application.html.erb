@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Helpdesk Uisrael 8vo A Sistemas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300|Open+Sans:400,300,300italic,400italic" rel="stylesheet">
+  <link rel="shortcut icon" href="<%= asset_path 'bootstrap/ico/favicon.ico'  %>">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%= asset_path 'bootstrap/ico/apple-touch-icon-144-precomposed.png'  %>">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%= asset_path 'bootstrap/ico/apple-touch-icon-114-precomposed.png'  %>">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%= asset_path 'bootstrap/ico/apple-touch-icon-72-precomposed.png'  %>">
+  <link rel="apple-touch-icon-precomposed" href="<%= asset_path 'bootstrap/ico/apple-touch-icon-57-precomposed.png'  %>">
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- logo -->
+          <a class="brand logo" href="/">
+            <%= image_tag "uisrael-logo.png", {width: "200"} %>
+          </a>
+          <!-- end logo -->
+
+          <!-- top menu -->
+          <div>
+            <nav>
+              <ul class="nav topnav">
+                <li class="success">
+                  <a href="/"><i class="icon-home icon-white"></i> Incio</a>
+                </li>
+                <% if user_signed_in? %>
+                  <li class="primary">
+                    <%= link_to incidencia_index_path do %>
+                      <i class="icon-pencil icon-white"></i> Incidencias
+                    <% end %>
+                  </li>
+                  <li class="warning">
+                    <%= link_to edit_user_registration_path do %>
+                      <i class="icon-user icon-white"></i> Mi cuenta
+                    <% end %>
+                  </li>
+                  <li class="danger">
+                    <%= link_to destroy_user_session_path, :data => {:confirm => "Esta a punto de salir del sistema.", :title => 'Logoff'}, :method => :delete do %>
+                      <i class="icon-remove icon-white"></i> Salir
+                    <% end %>
+                  </li>
+                <% else%>
+                  <li class="info">
+                    <%= link_to new_user_session_path do %>
+                      <i class="icon-user icon-white"></i> Ingresar/Registrar
+                    <% end %>
+                  </li>
+                <% end %>
+                
+                <% if false%>
+                  <li class="info">
+                    <a href="#"><i class="icon-bullhorn icon-white"></i> Blog</a>
+                  </li>
+                  <li class="inverse">
+                    <a href="contact.html"><i class="icon-envelope icon-white"></i> Contact</a>
+                  </li>
+                <% end %>
+                
+              </ul>
+            </nav>
+          </div>
+          <!-- end menu -->
+        </div>
+      </div>
+    </div>
+  </header>
+  
+
+  <section id="maincontent">
+    <div class="container">
+      <% if notice %>
+        <p class="well well-success"><%= notice %></p>
+      <% end %>
+      <% if alert%>
+        <p class="well well-warning"><%= alert %></p>
+      <% end %>
+        
+      <%= yield %>
+    </div>
+  </section>
+</body>
+</html>

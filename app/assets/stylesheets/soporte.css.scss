@@ -1,0 +1,39 @@
+form {
+  .actions {
+    margin-top: 10px;
+  }
+  textarea {
+    width: 95%;
+    min-height: 100px;
+  }
+  .fecha {
+    select {
+      max-width: 100px;
+    }
+  }
+}
+.form-incidencia {
+  td {
+    padding: 10px;
+  }
+}
+.incidencias {
+  display: flex;
+  flex-wrap: wrap;
+  .incidencia {
+    flex-basis: 17%;
+    padding: 5px;
+    .header {
+      display: flex;
+      justify-content: justify;
+      align-content: stretch;
+      .well {
+        padding: 5px 10px;
+        flex-basis: 50%;
+        &.codigo_error {
+          text-align: right;
+        }
+      }
+    }
+  }
+}

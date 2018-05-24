@@ -1,0 +1,68 @@
+<h2>Editar Usuario</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
+  <%= devise_error_messages! %>
+  <% if @user.avatar? %>
+    <ul class="thumbnails">
+      <li class="span4">
+        <a href="#" class="thumbnail">
+          <%= image_tag(@user.avatar_url(:thumb)) %>
+        </a>
+      </li>
+    </ul>
+  <% end %>
+    
+  <div class="field">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :apellido %><br>
+    <%= f.text_field :apellido %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autocomplete: "email" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>En espera de confirmacion de: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :password %> <i>(Dejar en blanco si no desea cambiar)</i><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em>Longitud mínima: <%= @minimum_password_length %> caracteres</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, "Confirmar password" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password, "Password actual" %> <i>(es necesario su password actual para confirmar sus cambios.)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Guardar" %>
+  </div>
+<% end %>
+
+<h3>Cancelar mi cuenta</h3>
+
+<p><%= button_to "Cancelar mi cuentas", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "Cancelar", :back %>

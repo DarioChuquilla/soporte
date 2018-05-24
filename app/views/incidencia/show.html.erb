@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Tipo error:</strong>
+  <%= @incidencia.tipo_error %>
+</p>
+<p>
+  <strong>Fecha error:</strong>
+  <%= @incidencia.fecha_error %>
+</p>
+<p>
+  <strong>Descripcion solucion:</strong>
+  <%= @incidencia.descripcion_solucion %>
+</p>
+<p>
+  <strong>Codigo error:</strong>
+  <%= @incidencia.codigo_error %>
+</p>
+<p>
+  <strong>Descripcion:</strong>
+  <%= @incidencia.descripcion %>
+</p>
+<p>
+  <strong>Fuente error:</strong>
+  <%= @incidencia.fuente_error %>
+</p>
+<p>
+  <strong>Fecha escalamiento:</strong>
+  <%= @incidencia.fecha_escalamiento %>
+</p>
+<p>
+  <strong>Responsable:</strong>
+  <%= @incidencia.responsable.try(:full_name) %>
+</p>
+<p>
+  <strong>Responsable cierre:</strong>
+  <%= @incidencia.responsable_cierre_id %>
+</p>
+<p>
+  <strong>Departamento:</strong>
+  <%= @incidencia.departamento.try(:nombre) %>
+</p>
+<p>
+  <strong>Estado:</strong>
+  <%= @incidencia.estado %>
+</p>
+<p>
+  <strong>Descripcion estado:</strong>
+  <%= @incidencia.descripcion_estado %>
+</p>
+
+<%= link_to 'Editar', edit_incidencia_path(@incidencia) %> |
+<%= link_to 'Regresar', incidencia_path %>

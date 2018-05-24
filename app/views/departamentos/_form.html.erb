@@ -1,0 +1,25 @@
+<%= form_for(@departamento) do |f| %>
+  <% if @departamento.errors.any? %>
+    <div id="error_explanation">
+      <h2>Se han presentado <%= pluralize(@departamento.errors.count, "error") %>:</h2>
+
+      <ul>
+      <% @departamento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.select :user_id, @usuarios.map{|u| [u.full_name, u.id]} %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

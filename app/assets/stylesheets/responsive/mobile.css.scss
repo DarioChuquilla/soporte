@@ -1,0 +1,21 @@
+
+/* Mobile only * small devices Iphone horizontal and vertical*/
+@media screen and (min-width: 0em) and (max-width: 46.0625em) {
+  .incidencias {
+    justify-content: space-evenly;
+    .incidencia {
+      flex-basis: 43%;
+    }
+  }
+}
+/* Mobile only vertical devises*/
+@media screen and (min-width: 0em) and (max-width: 26em) {
+  .incidencias {
+    .incidencia {
+      flex-basis: 100%;
+    }
+  }
+}
+/* iPhone 6 horizontal only */
+@media screen and (min-width: 22em) and (max-width: 47em) {
+}

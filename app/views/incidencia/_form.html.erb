@@ -1,0 +1,140 @@
+<%= form_for(@incidencia, url: path_to_incidencia, html: {class: "form-horizontal"}) do |f| %>
+  <% if @incidencia.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@incidencia.errors.count, "error") %> prohibited this incidencia from being saved:</h2>
+
+      <ul>
+      <% @incidencia.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table class="form-incidencia">
+    <tbody>
+      <tr>
+        <td class="well well-primary">
+          <span class="control-label">
+            Fecha de reporte:
+          </span>
+        </td>
+        <td class="well"><strong><%= DateTime.now.strftime("%d/%m/%Y")%></strong></td>
+      </tr>
+      <tr>
+        <td class="well well-primary">
+          <span class="control-label">
+            Registrado por:
+          </span>
+        </td>
+        <td class="well"><%= current_user.full_name %></td>
+      </tr>
+      <tr>
+        <td class="well well-primary">
+          <%= f.label :tipo_error, class: "control-label" %>
+        </td>
+        <td class="well">
+          <%= f.text_field :tipo_error %>
+        </td>
+      </tr>
+      <tr>
+        <td class="well well-primary">
+          <%= f.label :fecha_error, class: "control-label" %>
+        </td>
+        <td class="well fecha">
+          <%= f.datetime_select :fecha_error %>
+        </td>
+      </tr>
+      <tr>
+        <td class="well well-primary">
+          <%= f.label :codigo_error, class: "control-label" %>
+        </td>
+        <td class="well">
+          <%= f.text_field :codigo_error %>
+        </td>
+      </tr>
+      <tr>
+        <td class="well well-primary">
+          <%= f.label :descripcion, class: "control-label" %>
+        </td>
+        <td class="well">
+          <%= f.text_area :descripcion %>
+        </td>
+      </tr>
+      <tr>
+        <td class="well well-primary">
+          <%= f.label :fuente_error, class: "control-label" %>
+        </td>
+        <td class="well">
+          <%= f.text_field :fuente_error %>
+        </td>
+      </tr>
+      <tr>
+        <td class="well well-primary">
+          <%= f.label :estado, class: "control-label" %>
+        </td>
+        <td class="well">
+          <%= f.select :estado, @estados.map{|e| [e[:name], e[:id]]}%>
+        </td>
+      </tr>
+      <tr>
+        <td class="well well-primary">
+          <%= f.label :departamento_id, class: "control-label" %>
+        </td>
+        <td class="well">
+          <%# f.text_field :departamento_id %>
+          <%= f.select :departamento_id, @departamentos.map{|d| [d.nombre, d.id]}, include_blank: true %>
+        </td>
+      </tr>
+      <tr>
+        <td class="well well-primary">
+          <%= f.label :user_id, "Responsable", class: "control-label" %>
+        </td>
+        <td class="well">
+          <%# f.text_field :user_id %>
+          <%= f.select :user_id, @usuarios.map{|u| [u.full_name, u.id]}, include_blank: true %>
+        </td>
+      </tr>
+      <tr>
+        <td class="well well-primary">
+          <%= f.label :responsable_cierre_id, class: "control-label" %>
+        </td>
+        <td class="well">
+          <%# f.text_field :responsable_cierre_id %>
+          <%= f.select :responsable_cierre_id, @usuarios.map{|u| [u.full_name, u.id]}, include_blank: true %>
+        </td>
+      </tr>
+      <tr>
+        <td class="well well-primary">
+          <%= f.label :fecha_escalamiento, class: "control-label" %>
+        </td>
+        <td class="well fecha">
+          <%= f.datetime_select :fecha_escalamiento %>
+        </td>
+      </tr>
+      <tr>
+        <td class="well well-primary">
+          <%= f.label :descripcion_solucion, class: "control-label" %>
+        </td>
+        <td class="well">
+          <%= f.text_area :descripcion_solucion %>
+        </td>
+      </tr>
+      <tr>
+        <td class="well well-primary">
+          <%= f.label :descripcion_estado, class: "control-label" %>
+        </td>
+        <td class="well">
+          <%= f.text_area :descripcion_estado %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="actions">
+    <%= f.submit "Guardar", class: "btn btn-success" %>
+    <% if params[:action].downcase == "edit" %>
+      <%= link_to 'Detalles', @incidencia, class: "btn btn-primary" %>
+    <% end %>
+    <%= link_to 'Cancelar', incidencia_index_path, class: "btn btn-danger" %>
+  </div>
+<% end %>

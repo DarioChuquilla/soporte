@@ -1,0 +1,56 @@
+<div class="row-fluid">
+  <div class="span9">
+    <h1>Incidencias</h1>
+  </div>
+  <div class="span3">
+    <%= link_to new_incidencia_path, class: "btn btn-large btn-primary" do %>
+      <i class="icon-plus icon-white"></i> Registrar incidencia
+    <% end %>
+  </div>
+</div>
+
+
+<div class="incidencias">
+  <% @incidencias.each do |incidencia| %>
+    <div class="incidencia alert">
+      <div class="header">
+        <div class="fecha_error well well-primary">
+          <%= incidencia.fecha_error.strftime("%d/%m/%Y") %>
+        </div>
+        <div class="codigo_error well well-warn">
+          <%= incidencia.codigo_error %>
+        </div>
+      </div>
+      <div class="body">
+        <dl>
+          <dt>Tipo error</dt>
+          <dd><%= incidencia.tipo_error.upcase %></dd>
+        </dl>
+        <dl>
+          <dt>Fuente error</dt>
+          <dd><%= incidencia.fuente_error.upcase %></dd>
+        </dl>
+        <p>
+          <%= incidencia.descripcion %>
+        </p>
+      </div>
+      <div class="actions">
+        <div class="btn-group">
+          <%= link_to incidencia, class: "btn btn-success" do %>
+            <i class="icon-search icon-white"></i> Ver
+          <% end %>
+          <%= link_to edit_incidencia_path(incidencia), class: "btn btn-primary" do %>
+            <i class="icon-pencil icon-white"></i> Editar
+          <% end %>
+          <%= link_to incidencia, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" do %>
+            <i class="icon-remove icon-white"></i> Eliminar
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<br>
+
+
